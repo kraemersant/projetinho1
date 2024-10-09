@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sextou Gatinha</title>
+    <link rel="stylesheet" href="style.css"> <!-- Seu CSS aqui -->
+</head>
+<body>
+    
+    <div id="welcome-screen" class="show">
+        <h1 class="welcome-text">Sexta-feira vou te buscar na faculdade!</h1>
+        <button id="start-button" class="button">Claro Lindo!</button>
+    </div>
+    
+    <div id="pizza-screen" class="hidden">
+        <h2 class="pizza-title">Escolhe nossa pizza gatinha</h2>
+        <label class="pizza-option">
+            <input type="radio" name="pizza" value="Milho e Bacon" data-emojis="🌽🥓"> Milho e Bacon 🌽🥓
+        </label><br>
+        <label class="pizza-option">
+            <input type="radio" name="pizza" value="Frango com Catupiry" data-emojis="🍗🧀"> Frango com Catupiry 🍗🧀
+        </label><br>
+        <label class="pizza-option">
+            <input type="radio" name="pizza" value="Filézinho com Alho" data-emojis="🍖🧄"> Filézinho com Alho 🍖🧄
+        </label><br>
+        <button id="next-button" class="button">Próxima!</button>
+    </div>
+    
+    <div id="bebida" class="hidden">
+        <h2 class="drink-title">Escolha a bebida que tu vai querer!</h2>
+        <label class="drink-option">
+            <input type="radio" name="bebida" value="Suquinho natural do zaffs" data-emojis="🥤🍊"> Suquinho natural do zaffs 🥤🍊
+        </label><br>
+        <label class="drink-option">
+            <input type="radio" name="bebida" value="KeepCooler" data-emojis="❄️🥤"> KeepCooler ❄️🥤
+        </label><br>
+        <label class="drink-option">
+            <input type="radio" name="bebida" value="Águinha" data-emojis="💧🥤"> Águinha 💧🥤
+        </label><br>
+        <button id="finalize-button">Finalizar meu desejo!</button>
+    </div>
+    <div id="selection-display" class="hidden">
+        <h2>Você escolheu:</h2>
+        <div id="selection-content" class="selection-box"></div>
+    </div>
+    
+    <section>
+    <div id="result-screen" class="hidden">
+        <h2 id="result-title">🌺 A princesa Linda e Maravilhosa de 1,58 escolheu...🌺</h2>
+        <p id="result-message" class="result-message"></p>
+    </div>
+</section>
+    <script src="script.js"></script> <!-- Seu JavaScript aqui -->
+    
+</body>
+</html>

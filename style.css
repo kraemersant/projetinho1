@@ -1,0 +1,167 @@
+body {
+    font-family: Apple Chancery, cursive;
+    background-color: #d5f0d5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 1000px; /* Para o efeito 3D */
+}
+.welcome-text {
+    font-size: 2.5em; /* Tamanho da fonte */
+    color: #ff4081; /* Cor vibrante */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra do texto */
+    transform: perspective(500px) rotateY(10deg); /* Efeito 3D */
+    transition: transform 0.5s; /* Transição suave */
+}
+.welcome-text:hover {
+    transform: perspective(500px) rotateY(0deg) scale(1.05); /* Efeito ao passar o mouse */
+}
+h1, h2 {
+    color: #333;
+    text-align: center; /* Centraliza os títulos */
+    font-size: 24px;
+}
+.button {
+    background-color: #ff4081; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    transform: perspective(1000px) rotateY(0deg);
+}
+.button:hover {
+    background-color: #e91e63; /* Cor do botão ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+.pizza-title, .drink-title {
+    font-family: 'Montserrat', sans-serif; /* Fonte secundária */
+    font-size: 2em; /* Tamanho da fonte */
+    color: #033b03; /* Cor vibrante */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transform: perspective(500px) rotateY(10deg);
+    transition: transform 0.5s;
+}
+.pizza-title:hover, .drink-title:hover {
+    transform: perspective(500px) rotateY(0deg) scale(1.05);
+}
+.pizza-option, .drink-option {
+    font-size: 1.5em; /* Tamanho da fonte das opções */
+    color: #2196f3; /* Cor das opções */
+    transition: transform 0.3s;
+}
+.pizza-option:hover, .drink-option:hover {
+    transform: translateY(-5px); /* Levanta a opção ao passar o mouse */
+    color: #ff4081; /* Muda a cor ao passar o mouse */
+}
+.hidden {
+    display: none; /* Esconde elementos */
+}
+.selection-box {
+    background-color: #ffecb3; /* Cor de fundo da div */
+    border: 2px solid #ff4081; /* Borda colorida */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    font-size: 1.5em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    margin-top: 20px; /* Espaçamento acima */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+.show {
+    opacity: 1; /* Aparece a tela */
+    animation: fadeIn 0.5s forwards; /* Animação ao aparecer */
+}
+
+input[type="radio"] {
+    margin: 10px 0;
+    display: block; /* Garante que cada opção de radio fique em sua própria linha */
+    margin-right: 10px;
+}
+section {
+    padding: 20px;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animação suave */
+    background-color: #bcffab;
+    border-color: #000000;
+    border-radius: 5px;
+}
+section:hover {
+    transform: scale(1.05); /* Aumenta em 5% o tamanho da seção */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adiciona sombra para dar destaque */
+}
+section.hidden {
+    opacity: 0; /* Desaparecerá */
+    transform: translateY(50px); /* Se move para baixo ao sumir */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Começa invisível */
+        transform: translateY(-20px); /* Move para cima */
+    }
+    to {
+        opacity: 1; /* Torna-se visível */
+        transform: translateY(0); /* Volta à posição original */
+    }
+}
+#result-title {
+    font-size: 2.5rem; /* Tamanho grande para o título */
+    color: #ff4081; /* Cor do texto */
+    text-align: center; /* Centraliza o título */
+    margin: 20px 0; /* Espaçamento acima e abaixo */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fonte divertida */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra do texto para destaque */
+    animation: bounce 1s infinite; /* Animação de "pular" */
+}
+.result-message {
+    font-size: 1.5rem; /* Tamanho do texto do resultado */
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px; /* Espaçamento */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra ao redor da caixa */
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes slideOut {
+    from {
+        opacity: 1; /* Começa visível */
+        transform: translateY(0); /* Posição original */
+    }
+    to {
+        opacity: 0; /* Torna-se invisível */
+        transform: translateY(-20px); /* Move para cima */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0; /* Começa invisível */
+        transform: translateY(20px); /* Move para baixo */
+    }
+    to {
+        opacity: 1; /* Torna-se visível */
+        transform: translateY(0); /* Volta à posição original */
+    }
+}
+
+.button-exit {
+    animation: slideOut 0.5s forwards; /* Aplica a animação de saída */
+}
