@@ -7,15 +7,74 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     perspective: 1000px; /* Para o efeito 3D */
+}
+#welcome-screen {
+    text-align: center; /* Centraliza o texto */
+    background-color: rgba(143, 255, 246, 0.9); /* Fundo branco com leve transparência */
+    border-radius: 20px; /* Cantos arredondados */
+    padding: 40px; /* Espaçamento interno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    animation: fadeIn 1s ease-in-out; /* Animação de entrada */
+    max-width: 600px; /* Largura máxima da tela de boas-vindas */
+    width: 90%; /* Largura responsiva */
+}
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.emoji-container {
+    display: flex;
+    gap: 10px;
+}
+.emoji {
+    font-size: 2em;
+    animation: pop 1s infinite ease-in-out alternate;
+}
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.3);
+    }
 }
 .welcome-text {
     font-size: 2.5em; /* Tamanho da fonte */
-    color: #ff4081; /* Cor vibrante */
+    color: #1420d3; /* Cor vibrante */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra do texto */
     transform: perspective(500px) rotateY(10deg); /* Efeito 3D */
     transition: transform 0.5s; /* Transição suave */
+    animation: textSway 3s ease-in-out infinite; /* Animação de balançar */
+}
+
+/* Animação de Balançar */
+@keyframes textSway {
+    0% {
+        transform: perspective(500px) rotateY(10deg) translateX(0);
+    }
+    25% {
+        transform: perspective(500px) rotateY(10deg) translateX(5px); /* Move para a direita */
+    }
+    50% {
+        transform: perspective(500px) rotateY(10deg) translateX(-5px); /* Move para a esquerda */
+    }
+    75% {
+        transform: perspective(500px) rotateY(10deg) translateX(5px); /* Move para a direita novamente */
+    }
+    100% {
+        transform: perspective(500px) rotateY(10deg) translateX(0); /* Retorna ao centro */
+    }
+}
+#welcome-screen img {
+    max-width: 100%; /* A imagem não ultrapassa a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 20px 0; /* Espaço acima e abaixo da imagem */
+    border-radius: 10px; /* Cantos arredondados para a imagem */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra na imagem */
 }
 .welcome-text:hover {
     transform: perspective(500px) rotateY(0deg) scale(1.05); /* Efeito ao passar o mouse */
@@ -26,18 +85,19 @@ h1, h2 {
     font-size: 24px;
 }
 .button {
-    background-color: #ff4081; /* Cor de fundo do botão */
+    background-color: #8c5ef8; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 15px 30px;
-    font-size: 20px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     transform: perspective(1000px) rotateY(0deg);
+    margin: 10px;
 }
 .button:hover {
-    background-color: #e91e63; /* Cor do botão ao passar o mouse */
+    background-color: #3cdef3; /* Cor do botão ao passar o mouse */
     transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
 }
 .pizza-title, .drink-title {
@@ -53,19 +113,56 @@ h1, h2 {
 }
 .pizza-option, .drink-option {
     font-size: 1.5em; /* Tamanho da fonte das opções */
-    color: #2196f3; /* Cor das opções */
+    color: #7adef0; /* Cor das opções */
     transition: transform 0.3s;
+    margin:10px 0;
+}
+.pizza-card, .drink-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #a6a7f1;
+    border: 2px solid #3d98e2; /* Cor da borda */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer; /* Cursor de ponteiro ao passar */
+}
+.pizza-card:hover, .drink-card:hover {
+    transform: scale(1.05); /* Aumenta o cartão ao passar o mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra ao redor do cartão */
+}
+.pizza-content, .drink-content {
+    margin-left: 10px; /* Espaçamento entre o input e o conteúdo */
 }
 .pizza-option:hover, .drink-option:hover {
     transform: translateY(-5px); /* Levanta a opção ao passar o mouse */
     color: #ff4081; /* Muda a cor ao passar o mouse */
 }
+.pizza-description {
+    font-size: 0.9em; /* Tamanho da descrição */
+    color: #080808; /* Cor da descrição */
+    margin-top: 5px; /* Espaçamento acima */
+}
+.drink-description {
+    font-size: 0.9em; /* Tamanho da descrição */
+    color: #080808; /* Cor da descrição */
+    margin-top: 5px; /* Espaçamento acima */
+}
+#no-screen {
+    text-align: center;
+}
+.sad-image {
+    max-width: 300px; /* Ajuste o tamanho conforme necessário */
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem */
+}
+
 .hidden {
     display: none; /* Esconde elementos */
 }
 .selection-box {
     background-color: #ffecb3; /* Cor de fundo da div */
-    border: 2px solid #ff4081; /* Borda colorida */
+    border: 2px solid #74078f; /* Borda colorida */
     border-radius: 10px; /* Bordas arredondadas */
     padding: 20px;
     font-size: 1.5em; /* Tamanho da fonte */
@@ -78,7 +175,22 @@ h1, h2 {
     opacity: 1; /* Aparece a tela */
     animation: fadeIn 0.5s forwards; /* Animação ao aparecer */
 }
-
+#finalize-button {
+    background-color: #8c5ef8; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 15px 30px; /* Espaçamento interno */
+    font-size: 1.2em; /* Tamanho da fonte */
+    cursor: pointer; /* Mão ao passar o mouse */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transição suave */
+    margin: 10px; /* Margem ao redor do botão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+#finalize-button:hover {
+    transform: translateY(-5px); /* Eleva o botão */
+    background-color: #3db1ff; /* Cor de fundo ao passar o mouse */
+}
 input[type="radio"] {
     margin: 10px 0;
     display: block; /* Garante que cada opção de radio fique em sua própria linha */
@@ -88,7 +200,7 @@ section {
     padding: 20px;
     margin-bottom: 2rem;
     transition: transform 0.3s ease, opacity 0.3s ease; /* Animação suave */
-    background-color: #bcffab;
+    background-color: #6765f5;
     border-color: #000000;
     border-radius: 5px;
 }
@@ -110,25 +222,77 @@ section.hidden {
         transform: translateY(0); /* Volta à posição original */
     }
 }
+#result-screen {
+    width: 80%; /* Define a largura da div, pode ajustar para 100% se necessário */
+    max-width: 800px; /* Limita a largura máxima da div para grandes telas */
+    height: auto; /* Ajusta a altura conforme o conteúdo */
+    min-height: 300px;
+    margin: 50px; /* Centraliza a div na tela */
+    padding: 20px; /* Adiciona espaçamento interno */
+    background-color: #ad6ae4; /* Fundo branco para destacar o conteúdo */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para dar profundidade */
+    text-align: center; /* Centraliza o texto e imagens */
+    flex-direction: column;
+    align-items: center;
+}
 #result-title {
     font-size: 2.5rem; /* Tamanho grande para o título */
-    color: #ff4081; /* Cor do texto */
+    color: #58bde6; /* Cor do texto */
     text-align: center; /* Centraliza o título */
     margin: 20px 0; /* Espaçamento acima e abaixo */
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Fonte divertida */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra do texto para destaque */
     animation: bounce 1s infinite; /* Animação de "pular" */
 }
+.result-image-container img, .kitty-image {
+    max-width: 100%; /* Garante que as imagens não excedam a largura da div */
+    height: auto; /* Mantém a proporção */
+    border-radius: 10px; /* Arredondar os cantos das imagens */
+}
 .result-message {
-    font-size: 1.5rem; /* Tamanho do texto do resultado */
+    font-size: 1.2rem; /* Tamanho do texto do resultado */
     color: #333; /* Cor do texto */
     text-align: center; /* Centraliza o texto */
+    margin-top: 100px;
     margin: 20px; /* Espaçamento */
     background-color: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
     padding: 15px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra ao redor da caixa */
 }
+
+#falling-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Para garantir que não interfira com cliques */
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('flor.png'); /* Use uma imagem de coração */
+    background-size: cover;
+    animation: fall 3s infinite;
+}
+
+.kitty-image {
+    display: none; /* Esconde a imagem por padrão */
+    width: 100px;
+    height: auto;
+    margin-top: 100px;
+    align-items: center;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100%); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -164,4 +328,15 @@ section.hidden {
 
 .button-exit {
     animation: slideOut 0.5s forwards; /* Aplica a animação de saída */
+}
+
+@media (max-width: 600px) {
+    #result-screen {
+        width: 90%; /* Aumenta a largura em telas menores */
+        padding: 15px; /* Reduz o espaçamento para telas menores */
+    }
+    
+    .result-message {
+        font-size: 1em; /* Ajusta o tamanho da fonte para telas menores */
+    }
 }

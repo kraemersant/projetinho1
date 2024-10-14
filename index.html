@@ -9,36 +9,81 @@
 <body>
     
     <div id="welcome-screen" class="show">
-        <h1 class="welcome-text">Sexta-feira vou te buscar na faculdade!</h1>
-        <button id="start-button" class="button">Claro Lindo!</button>
+        <h1 class="welcome-text">✨ Sexta-feira vou te buscar na faculdade! ✨</h1>
+        <img src="coringa2.jpg" alt="coringa2">
+        <button id="start-button" class="button">Claro, meu gatinho! 😻</button>
+        <button id="no-feia-button" class="button">Não, sou feia! 💩</button>
+    </div>
+    <div id="no-screen" class="hidden">
+        <h1 class="no text">Porque não? 😭😭😭 </h1>
+        <img src="xerecas.png" alt="Fiquei de Xereca" class="sad-image">
+        <button id="back-button" class="button">Me arrependi, tu é maravilhoso!! 😍😍😍</button>
     </div>
     
     <div id="pizza-screen" class="hidden">
         <h2 class="pizza-title">Escolhe nossa pizza gatinha</h2>
-        <label class="pizza-option">
-            <input type="radio" name="pizza" value="Milho e Bacon" data-emojis="🌽🥓"> Milho e Bacon 🌽🥓
-        </label><br>
-        <label class="pizza-option">
-            <input type="radio" name="pizza" value="Frango com Catupiry" data-emojis="🍗🧀"> Frango com Catupiry 🍗🧀
-        </label><br>
-        <label class="pizza-option">
-            <input type="radio" name="pizza" value="Filézinho com Alho" data-emojis="🍖🧄"> Filézinho com Alho 🍖🧄
-        </label><br>
+        <div class="pizza-option">
+            <label class="pizza-card">
+                <input type="checkbox" name="pizza" value="Milho e Bacon" data-emojis="🌽🥓"> 
+                <div class="pizza-content">
+                    <h3>Milho e Bacon 🌽🥓</h3>
+                    <div class="pizza-description">A especialidade da casa!! Meu sabor favorito e coincidentemente o teu também ❤️<br>Contém: Queijo mussarela, Bacon Milho, Orégano e Requeijão(opcional).</div>
+                </div>
+            </label>
+        </div>
+        <div class="pizza-option">
+            <label class="pizza-card">
+                <input type="checkbox" name="pizza" value="Frango com Catupiry" data-emojis="🍗🧀"> 
+                <div class="pizza-content">
+                    <h3>Frango com Catupiry 🍗🧀</h3>
+                    <div class="pizza-description">O teu segundo sabor favorito segundo minhas pesquisas, baitaaa sabor 🤤 <br>Contém: Queijo mussarela, Frango em cubos, Orégano, Requeijão (não tenho ocatupiry).</div>
+                </div>
+            </label>
+        </div>
+        <div class="pizza-option">
+            <label class="pizza-card">
+                <input type="checkbox" name="pizza" value="Filézinho com Alho" data-emojis="🍖🧄"> 
+                <div class="pizza-content">
+                    <h3>Filézinho com Alho 🍖🧄</h3>
+                    <div class="pizza-description">Um sabor que eu mando muito bem também, com um leve toque de requeijão pra deixar toppp 😎 <br>Contém: Queijo mussarela, Carne cortada em tiras fritas no alho, Orégano, Requeijão </div>
+                </div>
+            </label>
+        </div>
         <button id="next-button" class="button">Próxima!</button>
     </div>
     
     <div id="bebida" class="hidden">
         <h2 class="drink-title">Escolha a bebida que tu vai querer!</h2>
-        <label class="drink-option">
-            <input type="radio" name="bebida" value="Suquinho natural do zaffs" data-emojis="🥤🍊"> Suquinho natural do zaffs 🥤🍊
-        </label><br>
-        <label class="drink-option">
-            <input type="radio" name="bebida" value="KeepCooler" data-emojis="❄️🥤"> KeepCooler ❄️🥤
-        </label><br>
-        <label class="drink-option">
-            <input type="radio" name="bebida" value="Águinha" data-emojis="💧🥤"> Águinha 💧🥤
-        </label><br>
+        <div class="drink-option">
+            <label class="drink-card">
+                <input type="radio" name="bebida" value="Suquinho natural do zaffs" data-emojis="🥤🍊"> 
+                <div class="drink-content">
+                    <h3>Suco Natural🥤🍊</h3>
+                    <div class="drink-description">Aquele suquinho do zaffssss 🧃</div>
+                </div>
+            </label>
+        </div>
+        <div class="drink-option">
+            <label class="drink-card">
+                <input type="radio" name="bebida" value="KeepCooler" data-emojis="❄️🥤"> 
+                <div class="drink-content">
+                    <h3>KeepCooler ❄️🥤</h3>
+                    <div class="drink-description">Aquele KeepCoolerzinho bem geladinhooo 🍹</div>
+                </div>
+            </label>
+        </div>
+        <div class="drink-option">
+            <label class="drink-card">
+                <input type="radio" name="bebida" value="Águinha" data-emojis="💧🥤"> 
+                <div class="drink-content">
+                    <h3>Águinha 💧🥤</h3>
+                    <div class="drink-description">Aquela águinha que não pode faltar..</div>
+                </div>
+            </label>
+        </div>
         <button id="finalize-button">Finalizar meu desejo!</button>
+    </div>
+    
     </div>
     <div id="selection-display" class="hidden">
         <h2>Você escolheu:</h2>
@@ -46,10 +91,22 @@
     </div>
     
     <section>
+        
     <div id="result-screen" class="hidden">
         <h2 id="result-title">🌺 A princesa Linda e Maravilhosa de 1,58 escolheu...🌺</h2>
         <p id="result-message" class="result-message"></p>
+        <div class="result-image-container">
+        <img id="couple-image" src="kitty.jpeg" alt="kitty">
+        
+        </div>
+        <div id="falling-hearts"></div>
+        
+
     </div>
+  
+        
+    </div>
+    
 </section>
     <script src="script.js"></script> <!-- Seu JavaScript aqui -->
     
